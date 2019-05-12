@@ -149,6 +149,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Handlers\CorsPreflightHandler.cs" />
+    <Compile Include="Filters\HttpsOnly.cs" />
     <Compile Include="Handlers\TalentManagerHandler.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />

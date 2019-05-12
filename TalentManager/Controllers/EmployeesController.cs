@@ -16,6 +16,7 @@ namespace TalentManager.Controllers
     public class EmployeesController : ApiController
     {
         [EnableETag]
+        [HttpsOnly]
         public Employee Get(int id)
         {
             if (id == 0)
@@ -28,6 +29,8 @@ namespace TalentManager.Controllers
                 Department = "Enforcement"
             };
         }
+
+
         public HttpResponseMessage GetAllEmployees()
         {
             var employees = new Employee[]

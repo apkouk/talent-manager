@@ -18,7 +18,7 @@
 
             $('#details').click(function () {
                 $('#employee').empty();
-                $.getJSON("http://localhost:6504/api/employees/12345", function (employee) {
+                $.getJSON("http://localhost:5214/api/employees/12345", function (employee) {
                     var now = new Date();
                     var ts = now.getHours() + ':' + now.getMinutes() + ':' + now.getSeconds();
                     var content = employee.Id + ' ' + employee.Name;
