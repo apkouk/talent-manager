@@ -9,6 +9,10 @@ using System.Web.Http;
 using System.Web.Mvc;
 using TalentManager.Models;
 using TalentManager.Filters;
+using System.Security.Claims;
+using System.Security.Principal;
+using System.IdentityModel.Configuration;
+
 
 namespace TalentManager.Controllers
 {
@@ -63,5 +67,33 @@ namespace TalentManager.Controllers
         //With the ConcurrencyChecker we make sure that we cannot change data by two user at the same time using ETags. PAG 55
         [ConcurrencyChecker]
         public void Put(Employee employee) { }
+
+        public HttpResponseMessage Delete(int id)
+        {
+            // Based on ID, retrieve employee details and create the list of resource claims
+            var employeeClaims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Country, "US"),
+                new Claim("http://badri/claims/department", "Engineering")
+            };
+            if (User.CheckAccess("Employee", "Delete", employeeClaims))
+            {
+                //repository.Remove(id);
+                return new HttpResponseMessage(HttpStatusCode.NoContent);
+            }
+            else
+                return new HttpResponseMessage(HttpStatusCode.Unauthorized);
+        }
+    }
+
+    public static class PrincipalHelper
+    {
+        public static bool CheckAccess(this IPrincipal principal, string resource, string action, IList<Claim> resourceClaims)
+        {
+            var context = new System.Security.Claims.AuthorizationContext(principal as ClaimsPrincipal, resource, action);
+            resourceClaims.ToList().ForEach(c => context.Resource.Add(c));
+            var config = new IdentityConfiguration();
+            return config.ClaimsAuthorizationManager.CheckAccess(context);
+        }
     }
 }

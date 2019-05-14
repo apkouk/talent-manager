@@ -26,6 +26,16 @@
                     $('#employee').append($('<li/>', { text: content }));
                 });
             });
+
+            $('#delete').click(function () {
+                $.ajax({
+                    type: "DELETE",
+                    url: "api/employees/12345",
+                    success: function (data) {
+                        alert('Employee deleted');
+                    }
+                });
+            });
         });
     </script>
 }
@@ -36,6 +46,7 @@
         </h1>
         <input id="search" type="button" value="Get" />
         <input id="details" type="button" value="Details" />
+        <input id="delete" type="button" value="Delete" />
     </div>
     <div>
         <ul id="employees" />

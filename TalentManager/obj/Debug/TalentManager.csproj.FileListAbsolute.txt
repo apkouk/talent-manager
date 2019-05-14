@@ -60,6 +60,5 @@ C:\Users\cesco\Documents\Repos\TalentManager\TalentManager\bin\ko\System.Spatial
 C:\Users\cesco\Documents\Repos\TalentManager\TalentManager\bin\ru\System.Spatial.resources.dll
 C:\Users\cesco\Documents\Repos\TalentManager\TalentManager\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\cesco\Documents\Repos\TalentManager\TalentManager\bin\zh-Hant\System.Spatial.resources.dll
-C:\Users\cesco\Documents\Repos\TalentManager\TalentManager\obj\Debug\TalentManager.csprojResolveAssemblyReference.cache
 C:\Users\cesco\Documents\Repos\TalentManager\TalentManager\obj\Debug\TalentManager.dll
 C:\Users\cesco\Documents\Repos\TalentManager\TalentManager\obj\Debug\TalentManager.pdb

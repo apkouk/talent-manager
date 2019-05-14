@@ -18,6 +18,7 @@ namespace TalentManager
             );
 
             config.MessageHandlers.Add(new TalentManagerHandler());
+            config.MessageHandlers.Add(new AuthHandler());
             //config.MessageHandlers.Add(new CorsPreflightHandler());
 
             // Uncomment the following line of code to enable query support for actions with an IQueryable or IQueryable<T> return type.
